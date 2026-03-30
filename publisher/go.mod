@@ -8,7 +8,10 @@ require (
 	github.com/nats-io/nats.go v1.50.0
 )
 
+replace github.com/ivalexander/nats-lab/models => ../models
+
 require (
+	github.com/ivalexander/nats-lab/models v0.0.0-00010101000000-000000000000
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/puddle/v2 v2.2.2 // indirect

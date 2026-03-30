@@ -6,12 +6,11 @@ import (
 	"fmt"
 	"log"
 
-	"publisher/models"
-
 	"publisher/common"
 
 	"publisher/broker"
 
+	models "github.com/ivalexander/nats-lab/models/orders"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -88,7 +87,7 @@ func (p *Pg) PublishData(nt *broker.Nats) error {
 func (p *Pg) setSendAt(id int64) error {
 	_, err := p.instance.Exec(p.ctx, `UPDATE orders SET sent_at = NOW() WHERE id = $1`, id)
 	if err != nil {
-		return fmt.Errorf("update error", err)
+		return err
 	}
 	return nil
 }
